@@ -9,6 +9,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
