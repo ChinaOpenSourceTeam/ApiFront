@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginService } from './login/login.service';
 import { ApiService } from './service/api.service';
+import { AppConfig } from './app.config';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ApiService } from './service/api.service';
     AppRoutingModule
   ],
   providers: [
-    LoginService,ApiService
+    LoginService,ApiService,AppConfig
   ],
   bootstrap: [AppComponent]
 })
