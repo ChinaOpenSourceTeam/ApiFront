@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     gotoDashboard(){
         this.loginService.login(this.loginName,this.password).then(message => {
             if(message.code === 0){
-                //alert(message.message);
+                alert(message.message);
                 this.storage.setItem('LoginName', this.loginName+'');
                 this.storage.setItem('Token', message.data.token);
                 this.router.navigate(['/layout']);
