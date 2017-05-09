@@ -8,7 +8,6 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginService } from './login/login.service';
 import { ApiService } from './service/api.service';
 import { AppConfig } from './app.config';
@@ -16,8 +15,7 @@ import { AppConfig } from './app.config';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

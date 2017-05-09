@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
                 alert(message.message);
                 this.storage.setItem('LoginName', this.loginName+'');
                 this.storage.setItem('Token', message.data.token);
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/layout']);
             }else{
                 alert(message.message);
             }
