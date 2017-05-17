@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserinfoService } from '../../userinfo/userinfo.service';
 import { UserInfo } from '../../userinfo/userinfo';
 import { Observable }     from 'rxjs/Observable';
+import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,13 @@ import { Observable }     from 'rxjs/Observable';
 })
 export class UserComponent implements OnInit {
 
-  constructor( private userinfoService : UserinfoService) { }
+  source: LocalDataSource;
+  constructor( private userinfoService : UserinfoService) {
+    this.source = new LocalDataSource();
+    this.userinfoService.getAllUserInfo().then( users => {
+      this.source.load(users.data.userList);
+    } );
+  }
   users : UserInfo[] ;
 
   ngOnInit():void {
@@ -27,10 +34,10 @@ export class UserComponent implements OnInit {
       id: {
         title: 'ID'
       },
-      name: {
+      userName: {
         title: 'Full Name'
       },
-      username: {
+      loginName: {
         title: 'User Name'
       },
       email: {
