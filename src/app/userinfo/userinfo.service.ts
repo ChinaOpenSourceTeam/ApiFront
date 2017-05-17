@@ -8,11 +8,17 @@ import 'rxjs/add/operator/toPromise';
 export class UserinfoService {
 
     public storage: Storage = sessionStorage;
-    url = '/system/user/findUserByLoginName?loginName='+this.storage.getItem('LoginName');
+
     constructor(private apiService :ApiService) { }
 
     getUserInfo(): Promise<any> {
-        return this.apiService.get(this.url);
+        let url = '/system/user/findUserByLoginName?loginName='+this.storage.getItem('LoginName');
+        return this.apiService.get(url);
+    }
+
+    getAllUserInfo(): Promise<any> {
+      let url = '/system/user/findAllUser';
+      return this.apiService.get(url);
     }
 
 }
