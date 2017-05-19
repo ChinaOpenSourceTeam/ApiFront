@@ -22,8 +22,13 @@ export class UserinfoService {
   }
 
   saveUser(user: UserInfo): Promise<any> {
-    let url = "/system/user/saveUser";
+    let url = '/system/user/saveUser';
     return this.apiService.post(url, JSON.stringify(user));
+  }
+
+  deleteUser(userId: string): Promise<any> {
+    let url = '/system/user/deleteUserById?id=' + userId;
+    return this.apiService.delete(url);
   }
 
 }

@@ -62,7 +62,9 @@ export class UserComponent implements OnInit {
 
   onDeleteConfirm(event) {
     if (window.confirm('Are you sure you want to delete?')) {
-
+      this.userinfoService.deleteUser(event.data.id).then(data => {
+        alert(data.message);
+      });
     } else {
 
     }
