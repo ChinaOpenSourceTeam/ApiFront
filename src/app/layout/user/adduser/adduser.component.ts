@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserInfo } from '../model/userinfo';
+import { UserinfoService } from '../service/userinfo.service';
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
@@ -7,25 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdduserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userinfoServic: UserinfoService) { }
 
-model = new Hero(18, 'Dr IQ', 'Chuck Overstreet');
+  model: UserInfo = new UserInfo();
   ngOnInit() {
   }
 
-onSubmit() {
-  alert(this.model.alterEgo);
-}
-
-}
-
-
-export class Hero {
-
-  constructor(
-    public id: number,
-    public name: string,
-    public alterEgo?: string
-  ) {  }
+  onSubmit() {
+    this.userinfoServic.saveUser(this.model).then(data => {
+      alert(data.message);
+    });
+    alert(JSON.stringify(this.model));
+  }
 
 }

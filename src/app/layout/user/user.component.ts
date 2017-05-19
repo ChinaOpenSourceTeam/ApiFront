@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserinfoService } from './service/userinfo.service';
-import { UserInfo } from './service/userinfo';
+import { UserInfo } from './model/userinfo';
 import { Observable }     from 'rxjs/Observable';
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 
@@ -12,21 +12,21 @@ import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 export class UserComponent implements OnInit {
 
   source: LocalDataSource;
-  constructor( private userinfoService : UserinfoService) {
+  constructor(private userinfoService: UserinfoService) {
     this.source = new LocalDataSource();
-    this.userinfoService.getAllUserInfo().then( users => {
+    this.userinfoService.getAllUserInfo().then(users => {
       this.source.load(users.data.userList);
-    } );
+    });
   }
-  users : UserInfo[] ;
+  users: UserInfo[];
 
-  ngOnInit():void {
-      this.getUser();
+  ngOnInit(): void {
+    this.getUser();
   }
-  getUser (): void {
-      this.userinfoService.getAllUserInfo().then( users => {
-        this.users = users.data.userList ;
-      } );
+  getUser(): void {
+    this.userinfoService.getAllUserInfo().then(users => {
+      this.users = users.data.userList;
+    });
 
   }
   settings = {
@@ -45,11 +45,11 @@ export class UserComponent implements OnInit {
       }
     },
     selectMode: 'multi',
-  	actions : {
-  		position : 'right'
-  	},
-  	///mode : 'external',
-  	hideSubHeader  : true ,
+    actions: {
+      position: 'right'
+    },
+    ///mode : 'external',
+    hideSubHeader: true,
 
     delete: {
       confirmDelete: true,
@@ -57,7 +57,7 @@ export class UserComponent implements OnInit {
     edit: {
       confirmSave: true,
     },
-    mode : 'external'
+    mode: 'external'
   }
 
   onDeleteConfirm(event) {
@@ -68,10 +68,10 @@ export class UserComponent implements OnInit {
     }
   }
   onSaveConfirm(event) {
-      if (window.confirm('Are you sure you want to save?')) {
+    if (window.confirm('Are you sure you want to save?')) {
 
-      } else {
+    } else {
 
-      }
+    }
   }
 }

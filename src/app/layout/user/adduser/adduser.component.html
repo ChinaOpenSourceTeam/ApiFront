@@ -7,28 +7,60 @@
 
 <div class="container">
 
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-<div class="row">
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <div class="row">
       <div class="form-group col-md-6">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel">
-        <div [hidden]="name.valid || name.pristine"
-             class="alert alert-danger">
-          Name is required
+        <label for="loginName">loginName</label>
+        <input type="text" class="form-control" id="loginName" required [(ngModel)]="model.loginName" name="loginName" #loginName="ngModel">
+        <div [hidden]="loginName.valid || loginName.pristine" class="alert alert-danger">
+          loginName is required
         </div>
       </div>
 
       <div class="form-group col-md-6">
-        <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" id="alterEgo"
-               [(ngModel)]="model.alterEgo" name="alterEgo">
+        <label for="userName">userName</label>
+        <input type="text" class="form-control" id="userName" required [(ngModel)]="model.userName" name="userName" #userName="ngModel">
+        <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
+          userName is required
+        </div>
       </div>
 
+      <div class="form-group col-md-6">
+        <label for="password">password</label>
+        <input type="text" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+          password is required
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="model.email" name="email">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="age">age</label>
+        <input type="text" class="form-control" id="age" [(ngModel)]="model.age" name="age">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="address">address</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="model.address" name="address">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="phone">phone</label>
+        <input type="text" class="form-control" id="phone" [(ngModel)]="model.phone" name="phone">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="photo">photo</label>
+        <input type="text" class="form-control" id="photo" [(ngModel)]="model.photo" name="photo">
+      </div>
+
+
       <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-  </div>
-    </form>
+    </div>
+  </form>
 
 </div>
