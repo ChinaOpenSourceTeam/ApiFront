@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
     loginName : String ;
     password : String  ;
-    
-     public storage: Storage = sessionStorage; 
-    
+
+     public storage: Storage = sessionStorage;
+
   constructor(private router: Router ,private  loginService : LoginService) { }
 
   ngOnInit() {
@@ -23,15 +23,14 @@ export class LoginComponent implements OnInit {
     gotoDashboard(){
         this.loginService.login(this.loginName,this.password).then(message => {
             if(message.code === 0){
-                alert(message.message);
                 this.storage.setItem('LoginName', this.loginName+'');
                 this.storage.setItem('Token', message.data.token);
                 this.router.navigate(['/layout']);
             }else{
                 alert(message.message);
             }
-            
+
         });
-        
+
     }
 }

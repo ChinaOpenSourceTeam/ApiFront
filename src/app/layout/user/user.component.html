@@ -3,8 +3,6 @@
   <li class="breadcrumb-item" active><a href="#">list</a></li>
 </ol>
 
-<ng2-smart-table [settings]="settings" [source]="source" ></ng2-smart-table>
+<a class="btn btn-primary" routerLink="adduser" role="button">add</a>
 
-<nav>
-     <a routerLink="adduser">adduser</a>
-</nav>
+<ng2-smart-table class="table table-striped" [settings]="settings" [source]="source" (delete)="onDeleteConfirm($event)" (edit)="onSaveConfirm($event)"></ng2-smart-table>

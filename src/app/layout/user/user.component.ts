@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserinfoService } from '../../userinfo/userinfo.service';
-import { UserInfo } from '../../userinfo/userinfo';
+import { UserinfoService } from './service/userinfo.service';
+import { UserInfo } from './service/userinfo';
 import { Observable }     from 'rxjs/Observable';
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 
@@ -43,30 +43,35 @@ export class UserComponent implements OnInit {
       email: {
         title: 'Email'
       }
-    }
-  };
-
-  data = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz"
     },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv"
+    selectMode: 'multi',
+  	actions : {
+  		position : 'right'
+  	},
+  	///mode : 'external',
+  	hideSubHeader  : true ,
+
+    delete: {
+      confirmDelete: true,
     },
+    edit: {
+      confirmSave: true,
+    },
+    mode : 'external'
+  }
 
-    // ... list of items
+  onDeleteConfirm(event) {
+    if (window.confirm('Are you sure you want to delete?')) {
 
-    {
-      id: 11,
-      name: "Nicholas DuBuque",
-      username: "Nicholas.Stanton",
-      email: "Rey.Padberg@rosamond.biz"
+    } else {
+
     }
-  ];
+  }
+  onSaveConfirm(event) {
+      if (window.confirm('Are you sure you want to save?')) {
+
+      } else {
+
+      }
+  }
 }
